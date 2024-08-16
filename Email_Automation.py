@@ -5,11 +5,15 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 
+
+
 def send_email(report_file, recipient_email):
+
+
     # Your email sending code here
     # Set up email credentials
-    sender_email = 'sender_mail@gmail.com'
-    app_password = 'sender_mail_account _app _password'
+    sender_email = 'santoshkumarnawd@gmail.com'
+    app_password = 'vspc tchg juia fxzg'
 
     # Define the email body
     email_body = """Dear Team, Please find the daily sales report attached. Best regards, [Your Name]"""
@@ -36,15 +40,19 @@ def send_email(report_file, recipient_email):
         server.login(sender_email, app_password)
         server.sendmail(sender_email, recipient_email, msg.as_string())
         server.quit()
-        print("Email sent successfully!")
+        print(f"Email sending.... to {recipient_email} with attachment {report_file}")
     except smtplib.SMTPAuthenticationError as e:
         print(f"Failed to send email: {e}")
 
 def schedule_email(recipient_email, schedule_time):
-    schedule.every().day.at(schedule_time).do(send_email, 'todays_sales_report.pdf', recipient_email)
+    job = schedule.every().day.at(schedule_time).do(send_email, 'todays_sales_report.pdf', recipient_email)
     while True:
         schedule.run_pending()
-        break  # Exit the loop after sending the email
+        time.sleep(1) 
+        # Check if the job has been executed
+        if job.last_run:
+            break  # Exit the loop after the job has run
+
 
 # Test
 '''recipient_email = 'recipient@example.com'

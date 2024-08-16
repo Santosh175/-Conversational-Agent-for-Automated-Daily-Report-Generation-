@@ -1,7 +1,7 @@
 from Data_Extraction import extract_sales_data
 from Report_Generation import generate_report
 from Email_Automation import send_email, schedule_email
-import nltk
+
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import WordPunctTokenizer
@@ -27,10 +27,10 @@ def process_user_input(user_input):
     # Determine the user's intent
     if 'generate' in user_input and 'report' in user_input:
         return 'generate_report', recipient_email, schedule_time
-    elif 'send' in user_input and 'report' in user_input:
-        return 'send_report', recipient_email, schedule_time
+    elif 'send' in user_input and 'mail' in user_input:
+        return 'send_mail', recipient_email, schedule_time
     elif 'schedule' in user_input and 'mail' in user_input:
-        return 'schedule_report', recipient_email, schedule_time
+        return 'schedule_mail', recipient_email, schedule_time
     elif 'exit' in user_input :
         return 'Thanks_note',None, None
     else:
@@ -44,11 +44,11 @@ def handle_user_input(user_input):
         generate_report(sales_data)
         return 'Report generated successfully!'
     
-    elif intent == 'send_report':
-        # Send the report
+    elif intent == 'send_mail':
+        # Send the mail
         if recipient_email:
             send_email("todays_sales_report.pdf", recipient_email)
-            return 'Report sent successfully!'
+            return 'mail sent successfully!'
         else:
             print(recipient_email)
             return 'Please specify recipient email.'
@@ -61,17 +61,19 @@ def handle_user_input(user_input):
             return 'Please specify recipient email and schedule time.'
         
     elif intent == 'Thanks_note':
-        return 'thanks , See you Soon'
+        return 'thanks , See you Soon !!'
     else:
         return 'Sorry, I didn\'t understand your request.'
 
 def main():
+    print()
     print('Welcome to the Mailmitra , how I can help you ? ')
     while True:
+        print()
         user_input = input('Please enter your request: ')
         response = handle_user_input(user_input)
         print(response)
-        if response == 'thanks , See you Soon' : # Exit condition
+        if response == 'thanks , See you Soon !!' : # Exit condition
             break
 
 if __name__ == '__main__':
