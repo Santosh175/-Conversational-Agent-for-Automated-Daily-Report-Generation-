@@ -22,8 +22,8 @@ This project uses Python for scripting and automation. The following libraries a
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/Santosh175/-Conversational-Agent-for-Automated-Daily-Report-Generation-.git
+    cd -Conversational-Agent-for-Automated-Daily-Report-Generation-
     ```
 
 2. **Install dependencies**:
