@@ -51,15 +51,11 @@ This project uses Python for scripting and automation. The following libraries a
   
 ## 📜 License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. 
 
 ## 📬 Contact
 
 For any questions or suggestions, please contact:
 
-- **Email**: [mail](mailto:santoshkumarnawd@gmail.com)
-- **LinkedIn**: Santosh Kumar
-
----
-
-Feel free to customize this `README.md` file further to suit your project's needs. If you have any other details or sections you'd like to add, let me know! 😊
+- [ **Email**](mailto:santoshkumarnawd@gmail.com)
+- [**LinkedIn**](https://www.linkedin.com/in/santoshai/)
